@@ -1,17 +1,10 @@
 def solution(arr1, arr2):
-    answer = []
-    print(arr1, arr2)
-    
-    
-    for x in range(len(arr1)):
-        item = []
-        for y in range(len(arr1[x])):
-            item.append(arr1[x][y] + arr2[x][y])
-        answer.append(item)
-    return answer
+    return [[arr1[i][j] + arr2[i][j] for j in range(len(arr1[i]))] for i in range(len(arr1))]
 
 a, b = 	[[1, 2], [2, 3]], [[3, 4], [5, 6]]
+print(a, b)
 print(solution(a, b))
 
 x, y = 	[[1], [2]], [[3], [4]]
+print(x, y)
 print(solution(x, y))

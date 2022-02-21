@@ -4,9 +4,7 @@ def printSquareStar(a, b):
         return
     
     for i in range(b):
-        s = ''
-        for j in range(a):
-            s += '*'
+        s = '*'*a
         print(s)
 
 a, b = map(int, input("Enter two number: ").strip().split(' '))
