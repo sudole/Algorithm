@@ -1,4 +1,4 @@
-## reverse nature number (정수 내림차순으로 배치하기)
+## reverse nature number (자연수 뒤집어 배열로 만들기)
 
 ### 사용 언어
 > python
