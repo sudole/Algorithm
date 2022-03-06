@@ -6,11 +6,9 @@ def gcd(a, b):
         b = int(r)
     return a
 
-def lcm(a, b):
-    return int((a * b) / gcd(a,b))
-
 def solution(a, b):
-    return [gcd(max(a,b), min(a,b)), lcm(max(a,b), min(a,b))]
+    n_gcd = gcd(max(a,b), min(a,b))
+    return [n_gcd, int((a * b) / n_gcd)]
 
 print(solution(3, 12))
 print(solution(2, 5))
