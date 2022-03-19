@@ -1,6 +1,6 @@
 def solution(s, n):
     answer = ''
-    for c in list(s):
+    for c in s:
         if c == " ": answer += c
         else:
             end=90

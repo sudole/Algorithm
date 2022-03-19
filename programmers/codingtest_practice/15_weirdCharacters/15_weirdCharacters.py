@@ -1,7 +1,7 @@
 def solution(s):
     answer = ''
     i = 0
-    for char in list(s):
+    for char in s:
         if char == " ": 
             i = 0
             answer += char
