@@ -16,11 +16,29 @@ def solution(n):
         i+=1
     return len(answer)
 
-print(solution(10))
-print(solution(100))
-print(solution(1000))
-print(solution(10000))
-# ..
-print(solution(100000))
-# ..
-print(solution(1000000))
+def solution2(n):
+    count=0
+    for x in range(2, n+1):
+        for y in range(2, x+1):
+            if x == 2:
+                count+=1
+                break
+            if x == 3:
+                count+=1
+                break
+            elif x == y:
+                count+=1
+                break
+            elif x%y==0:
+                break
+            y+=1
+    return count
+
+print(solution2(10))
+# print(solution(100))
+# print(solution(1000))
+# print(solution(10000))
+# # ..
+# print(solution(100000))
+# # ..
+# print(solution(1000000))
