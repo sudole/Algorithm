@@ -12,6 +12,7 @@ def solution(dartResult):
         
         dartResult = dartResult.replace(chkstr, '')
         print(idx, chkstr, dartResult)
+        
     # for x in dartResult:
     #     print(x)
     return answer
