@@ -1,4 +1,12 @@
+
 def solution(s, n):
+    w = {}
+    for word in s:
+        w[word] = word[n]
+
+    return list(dict(sorted(w.items(), key = lambda s: (s[1], s[0]))))
+
+def solution2(s, n):
     answer=[]
     w=[]
     for i, word in enumerate(s):
