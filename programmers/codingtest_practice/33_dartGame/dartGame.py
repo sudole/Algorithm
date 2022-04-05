@@ -1,7 +1,7 @@
 def solution(dartResult):
     answer = 0
     score_item = []
-
+    
     while len(dartResult)>0:
         chkstr=''
         idx = findBonus(dartResult)
@@ -19,7 +19,16 @@ def solution(dartResult):
         b_idx=findBonus(score)
         n = score[0:b_idx]
         b = score.replace(n, '')
-        print(score, b_idx, n, b)
+        o_idx = findOption(b)
+
+        n = int(n)
+        o = convertOption(b[o_idx])
+        if o_idx > -1 and o > -1:
+            b = convertBonus(b[0:o_idx])
+            answer = answer * o + (n ** b) * o
+        else:
+            answer = answer + (n ** convertBonus(b))
+
     return answer
 
 def findBonus(strWord):
@@ -38,4 +47,19 @@ def findOption(strWord):
             break
     return index
 
+def convertBonus(b):
+    if b == 'S':
+        return 1
+    if b == 'D':
+        return 2
+    if b == 'T':
+        return 3
+
+def convertOption(o):
+    if o == '*':
+        return 2
+    if o == '#':
+        return -1
+
 print(solution('1S2D*3T'))
+print(solution('1D2S#10S'))
