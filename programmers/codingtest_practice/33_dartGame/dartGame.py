@@ -3,12 +3,13 @@ def solution(dartResult):
     tmp_answer = []
     for x in dartResult:
         x_ord=ord(x)
+        # ascii code check '0' ~ '9'
         if x_ord >= 48 and x_ord <= 57:
             if x_ord == 48 and x_num > -1:
                 x_num *= 10
             else:
                 x_num = int(x)
-        else:
+        else: # bonus, option check
             if x in ('S', 'D', 'T'):
                 if x == 'S':
                     tmp_answer.append(x_num**1)
