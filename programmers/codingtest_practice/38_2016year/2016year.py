@@ -1,5 +1,5 @@
 def solution(a, b):
-    weeks = ['THU', 'FRI','SAT','SUN','MON','TUE','WED']
+    weeks = ['FRI','SAT','SUN','MON','TUE','WED','THU']
     n=0
     for m in range(1, a):
         if m % 2 == 0:
@@ -14,8 +14,8 @@ def solution(a, b):
                 n += 31
             else:
                 n += 30
-    n += b
-    print(n, (n % 7))
+    n += b - 1
+    #print(n, (n % 7))
     return weeks[(n % 7)]
 
 # result > "TUE"
