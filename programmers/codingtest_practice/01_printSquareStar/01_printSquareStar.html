@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>별 찍기</title>
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+    <style>
+        #drawStar { padding: 2em; }
+    </style>
+    <script>
+        $(document).ready(function(){
+           $("#print").on('click', function(){
+               const num_width = $("#numWidth").val();
+               const num_height = $("#numHeight").val();
+
+               if (num_width > 0 && num_height > 0) {
+                   let drawStar = '';
+                   for(let i=0; i<num_height; i++) {
+                       for(let j=0; j<num_width; j++) {
+                           drawStar+='*';
+                       }
+                       drawStar+='\r\n';
+                   }
+
+                   $("#drawStar").text(drawStar).css('border', '1px solid darkslategray');
+               }
+           });
+        });
+    </script>
+</head>
+<body>
+    <input type="number" id="numWidth" min="1" pattern="\d" placeholder="가로 길이" />
+    <input type="number" id="numHeight" min="1" pattern="\d" placeholder="세로 길이" />
+    <button id="print">출력</button>
+    <pre id="drawStar">※ 출력 버튼 클릭 시 결과를 확인할 수 있습니다. ※</pre>
+</body>
+</html>
