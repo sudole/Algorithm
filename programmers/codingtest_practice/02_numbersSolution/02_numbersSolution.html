@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>x만큼 간격이 있는 n개의 숫자</title>
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+    <style>
+        #drawNum { padding: 2em; }
+    </style>
+    <script>
+        $(document).ready(function(){
+            $("#print").on('click', function(){
+                const num_start = $("#numStart").val();
+                const num_count = $("#numCount").val();
+
+                if (num_start > 0 && num_count > 0) {
+                    let drawStar = '';
+                    for(let i=1; i<=num_count; i++) {
+                        drawStar+= (i*num_start+'\n');
+                    }
+
+                    $("#drawNum").text(drawStar).css('border', '1px solid darkslategray');
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <input type="number" id="numStart" min="1" pattern="\d" placeholder="시작 및 범위 값" />
+    <input type="number" id="numCount" min="1" pattern="\d" placeholder="출력 횟수" />
+    <button id="print">출력</button>
+    <pre id="drawNum">※ 출력 버튼 클릭 시 결과를 확인할 수 있습니다. ※</pre>
+</body>
+</html>
