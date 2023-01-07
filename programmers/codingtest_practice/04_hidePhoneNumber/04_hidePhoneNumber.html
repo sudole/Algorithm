@@ -12,25 +12,19 @@
     </style>
     <script>
         $(document).ready(function(){
-            let phoneNumber = '010-1234-5678';
-            
-            $("#orgPhone").text(phoneNumber);
-            
             $("#hide").on('click', function(){
-                $("#orgPhone").text(hidePhoneNumber(phoneNumber));
+                $("#drawNum").text(hidePhoneNumber($("#orgPhone").val()));
             });
             
             function hidePhoneNumber(number) {
-                let updateNm = number;
-                updateNm.replace(updateNm.slice(-4), '****');
-                return updateNm;
+                return number.replace(number.slice(-4), '****');
             }
         });
     </script>
 </head>
 <body>
-    <p id="orgPhone"></p>
-    <button id="hide">출력</button>
-    <pre id="drawNum">※ 출력 버튼 클릭 시 결과를 확인할 수 있습니다. ※</pre>
+    <input type="text" id="orgPhone" />
+    <button id="hide">일부 가리기</button>
+    <pre id="drawNum">※ 결과가 표시되는 부분입니다. ※</pre>
 </body>
 </html>
