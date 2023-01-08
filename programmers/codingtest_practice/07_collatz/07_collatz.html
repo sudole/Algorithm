@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>콜라츠 추측</title>
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+    <style>
+        #result { padding: 2em; }
+    </style>
+    <script>
+        $(document).ready(function(){
+            $("#check").on('click', function(){
+                let number = $("#number").val();
+                if (checkCollatz(number) >= 0) {
+                    $("#result").text(number + "는 콜라츠 수 입니다.");
+                } else {
+                    $("#result").text(number + "는 콜라츠 수가 아닙니다.");
+                }
+            });
+            
+            function checkCollatz(number) {
+                let answer = 0;
+                while(number !== 1) {
+                    if (answer > 500) {
+                        answer = -1
+                        return;
+                    }
+                    if (number % 2 === 0) {
+                        number /= 2;
+                    } else {
+                        number = number * 3 + 1;
+                    }
+                    answer +=1
+                }
+                return answer;
+            }
+        });
+    </script>
+</head>
+<body>
+    <input type="number" id="number" />
+    <button id="check">콜라츠 확인하기</button>
+    <pre id="result">※ 결과가 표시되는 부분입니다. ※</pre>
+</body>
+</html>
