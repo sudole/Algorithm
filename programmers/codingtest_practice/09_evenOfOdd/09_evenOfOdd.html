@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>짝수 또는 홀수</title>
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+    <style>
+        #result { padding: 2em; }
+    </style>
+    <script>
+        $(document).ready(function(){
+            $("#check").on('click', function(){
+                let number = $("#number").val();
+
+                $("#result").text(number + "는 " + checkEvenOrOdd(number) + "입니다.");
+            });
+        });
+
+        function checkEvenOrOdd(number) {
+            if (number % 2 === 0) {
+                return "짝수";
+            } else {
+                return "홀수";
+            }
+        }
+    </script>
+</head>
+<body>
+    <input type="number" id="number" />
+    <button id="check">짝수 or 홀수</button>
+    <pre id="result">※ 결과가 표시되는 부분입니다. ※</pre>
+</body>
+</html>
