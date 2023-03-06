@@ -1,11 +1,10 @@
 def solution(s):
-    arr = []
-    for word in s.split(" "):
-        a = word[0]
-        if type(a) == str and a != ' ' and ord(a) >= ord('a'):
-            b = word[1:]
-            arr.append(a.upper() + b.lower())
-        else:
-            arr.append(word)
+    answer = ''
 
-    return ' '.join(arr)
+    while s.find(' ') != -1:
+        answer += s[0].upper()
+        answer += s[1:s.find(' ')+1].lower()
+        s=s.replace(s[:s.find(' ')+1], '')
+    answer += s[0].upper() + s[1:].lower()
+
+    return answer
