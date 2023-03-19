@@ -1,13 +1,16 @@
 def solution(A,B):
     answer = 0
 
-    sum_list = A + B
-    while len(sum_list) != 0:
-        min_i = min(sum_list)
-        max_i = max(sum_list)
-        answer += min_i * max_i
-        sum_list.pop(sum_list.index(min_i))
-        sum_list.pop(sum_list.index(max_i))
+    while len(A) != 0 and len(B) != 0:
+        val_a = max(A)
+        val_b = max(B)
+        if val_a < val_b:
+            val_a = min(A)
+        else:
+            val_b = min(B)
+        answer += val_a * val_b
+        A.pop(A.index(val_a))
+        B.pop(B.index(val_b))
 
     return answer
 
