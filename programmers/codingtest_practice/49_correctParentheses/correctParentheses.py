@@ -4,15 +4,15 @@ def solution(s):
     if s.count('(') != s.count(')'): return False
     if s[0] == ')': return False
 
+    check = 0
     for x in s:
         if x == '(':
-            answer = False
-        if answer == False and x == ')':
-            answer = True
-        if answer == True and x == '(':
-            answer = False
+            check+=1
+        elif x == ')':
+            check-=1
+    if check > 0: answer = False
 
-    return True
+    return answer
 
 # answer true
 print(solution("()()"))
