@@ -5,15 +5,15 @@ public class printSqureStar {
 	public static void main(String[] args) {
 		int w = 1;
 		int h = 1;
-		Scanner scan = new Scanner(System.in);
-		
-		System.out.print("Width > ");
-		w = scan.nextInt();
-		
-		scan.nextLine();
-		
-		System.out.print("Height > ");
-		h = scan.nextInt();
+		try (Scanner scan = new Scanner(System.in)) {
+			System.out.print("Width > ");
+			w = scan.nextInt();
+			
+			scan.nextLine();
+			
+			System.out.print("Height > ");
+			h = scan.nextInt();
+		}
 		
 		printsquare(w, h);
 		
